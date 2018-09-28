@@ -17,4 +17,5 @@ class OrderController extends Controller
         pd(DB::table('users')->where('id',2)->toArray());
         return $this->apiResponseSuccess(Order::find(2)->toArray());
     }
+    public function ab(){}
 }
