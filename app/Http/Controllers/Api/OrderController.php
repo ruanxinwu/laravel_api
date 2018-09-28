@@ -14,7 +14,8 @@ class OrderController extends Controller
     use ControllerTraits;
     public function index(Request $request)
     {
-        pd(DB::table('users')->where('id',2)->toArray());
-        return $this->apiResponseSuccess(Order::find(2)->toArray());
+        $model = new Order();
+        dd($model->datas());
+        return $this->apiResponseSuccess($model->datas());
     }
 }
