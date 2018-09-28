@@ -18,4 +18,5 @@ class OrderController extends Controller
         dd($model->datas());
         return $this->apiResponseSuccess($model->datas());
     }
+    public function ab(){}
 }

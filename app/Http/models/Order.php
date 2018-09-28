@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 
 class Order extends Model
 {
+
     protected $table = 'users';
 
     protected $hidden = ['id'];
@@ -14,4 +15,5 @@ class Order extends Model
     {
         return self::find(2);
     }
+
 }
