@@ -14,8 +14,12 @@ class OrderController extends Controller
     use ControllerTraits;
     public function index(Request $request)
     {
-        pd(DB::table('users')->where('id',2)->toArray());
-        return $this->apiResponseSuccess(Order::find(2)->toArray());
+        $file = $request->file('ss');
+        $test = $file->extension();
+        $store = $file->store('ruan123');
+        //$test = $file->storeAs('jo','这个名字我自己定义.xlsx');
+        //$test = 0;
+        pd($file,$test,$store);
     }
     public function ab(){}
 }

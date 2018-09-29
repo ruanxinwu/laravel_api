@@ -20,5 +20,5 @@ Route::group(['middleware' => ['api.log']],function() {
 Route::group(['middleware' => ['token','api.log']],function(){
     Route::post('loginOut','Api\LoginController@loginOut');
     Route::post('default/show','Api\DefaultController@show');
-    Route::get('order/index','Api\OrderController@index');
+    Route::post('order/index','Api\OrderController@index');
 });
