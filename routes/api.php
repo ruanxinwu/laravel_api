@@ -18,7 +18,13 @@ Route::group(['middleware' => ['api.log']],function() {
     Route::post('register', 'Api\LoginController@register');
 });
 Route::group(['middleware' => ['token','api.log']],function(){
+
+    Route::group(['middleware' => ['permission:permission_1','role:writer|io']], function () {
+        Route::post('default/show','Api\DefaultController@show');
+    });
+
     Route::post('loginOut','Api\LoginController@loginOut');
-    Route::post('default/show','Api\DefaultController@show');
     Route::post('order/index','Api\OrderController@index');
+    Route::post('permission/createRoles','Api\PermissionController@createRoles');
+    Route::post('permission/createPermission','Api\PermissionController@createPermission');
 });
