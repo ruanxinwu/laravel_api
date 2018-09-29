@@ -25,12 +25,14 @@ class CheckToken
         // 获取token,如果get和post同时传的话，取get的token
         $token = $request->get('token');
         $user = DB::table('users')
-            ->select(['id','name','email'])
+            ->select('id')
             ->where([['api_token','=',$token],['expire_at','>',date('Y-m-d H:i:s',time())]])
             ->first();
         if($user === null) {
             return response()->json($this->apiResponseError(ApiException::TOKEN_ERROR));
         }
+        $user = User::query()->find($user->id,['id','name','email']);
+
         // 存储用户信息
         $request->user = $user;
         $response = $next($request);
