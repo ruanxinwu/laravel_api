@@ -19,7 +19,7 @@ Route::group(['middleware' => ['api.log']],function() {
 });
 Route::group(['middleware' => ['token','api.log']],function(){
 
-    Route::group(['middleware' => ['permission:permission_1','role:writer|io']], function () {
+    Route::group(['middleware' => ['permission:writer|permission_1|das']], function () {
         Route::post('default/show','Api\DefaultController@show');
     });
 

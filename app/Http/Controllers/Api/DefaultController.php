@@ -7,6 +7,7 @@ use App\Http\Traits\ControllerTraits;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
@@ -18,7 +19,12 @@ class DefaultController extends Controller
         $user = $request->user;
 
         // 给 $role_id = 4 添加权限
-        //(Role::findById(4))->givePermissionTo('permission_1');
+        try{
+            (Role::findById(4))->givePermissionTo('permission_1');
+        }catch(\Exception $e){
+            return response()->json($this->apiResponseError(400,$e->getMessage()));
+        }
+
 
         // 给用户添加权限
         //$user = User::query()->find(41)->givePermissionTo('permission_1');
