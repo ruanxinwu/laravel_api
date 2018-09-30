@@ -31,6 +31,6 @@ class Permission
             }
         }
 
-        return response()->json($this->apiResponseError(403,'无权访问！'));
+        return response()->json($this->apiResponseError(403));
     }
 }

@@ -19,9 +19,9 @@ Route::group(['middleware' => ['api.log']],function() {
 });
 Route::group(['middleware' => ['token','api.log']],function(){
 
-    Route::group(['middleware' => ['permission:writer|permission_1|das']], function () {
+    //Route::group(['middleware' => ['permission:writer|permission_1|das']], function () {
         Route::post('default/show','Api\DefaultController@show');
-    });
+    //});
 
     Route::post('loginOut','Api\LoginController@loginOut');
     Route::post('order/index','Api\OrderController@index');

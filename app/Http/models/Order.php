@@ -8,12 +8,17 @@ use Illuminate\Support\Facades\DB;
 class Order extends Model
 {
 
-    protected $table = 'users';
+    //protected $table = '';
+
+    const CREATED_AT = null;
+    const UPDATED_AT = null;
 
     protected $hidden = ['id'];
-    public function datas()
+
+    protected $fillable = ['order_no'];
+    public static function findOrderNo($orderNo,$selects = ['*'])
     {
-        return self::find(2);
+        return self::query()->select($selects)->where('order_no','=',$orderNo)->first();
     }
 
 }
