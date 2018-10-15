@@ -15,6 +15,9 @@ class User extends Authenticatable //implements JWTAuth
     use HasRoles;
     private $expire_at = 3600;
     //protected $table = '';
+    //protected $primaryKey = 'dd';
+    //protected $incrementing
+    protected $keyType;
     /**
      * The attributes that are mass assignable.
      *
@@ -36,7 +39,7 @@ class User extends Authenticatable //implements JWTAuth
     public function createToken()
     {
         $token = Uuid::uuid4()->toString();
-        self::updateOrCreate(
+        self::Query()->updateOrCreate(
             ['name' => $this->name],
             ['api_token' => $token,'expire_at' => date('Y-m-d H:i:s',time() + $this->expire_at)]
         );

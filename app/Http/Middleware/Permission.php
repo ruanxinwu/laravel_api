@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Exceptions\ApiException;
 use App\Http\Traits\ControllerTraits;
 use Closure;
 
@@ -31,6 +32,6 @@ class Permission
             }
         }
 
-        return response()->json($this->apiResponseError(403));
+        return response()->json($this->apiResponseError(ApiException::FORBIDDEN));
     }
 }

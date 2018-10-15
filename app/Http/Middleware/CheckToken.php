@@ -22,7 +22,7 @@ class CheckToken
     {
         $request->request_at =  date('Y-m-d H:i:s',time());
 
-        // 获取token,如果get和post同时传的话，取get的token
+        // 获取token,优先级 get>post>header
         $token = $request->get('token');
         $token = $token?$token:$request->header('token');
 
