@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
+use Logic\OrderLogic;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
@@ -20,7 +21,8 @@ class DefaultController extends Controller
     public $da;
     public function show(Request $request)
     {
-        pd_var(Order::onlyTrashed()->get());
+        $model = new OrderLogic();
+        pd($model->demo());
     }
 
 }
