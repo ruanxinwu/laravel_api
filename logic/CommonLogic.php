@@ -126,7 +126,6 @@ class CommonLogic
      */
     public function readExcel($file,$fileType = 'xlsx')
     {
-       return IOFactory::createReader($fileType)->load($file)
-                    ->getActiveSheet()->toArray();
+        return IOFactory::createReader($fileType)->load($file)->getActiveSheet()->toArray();
     }
 }

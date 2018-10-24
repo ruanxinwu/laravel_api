@@ -1,0 +1,82 @@
+[33mcommit 24b5b50bffcca3a71c3b6f2e1ab12635f2dcb6d6[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: ruanxinwu <770597562@qq.com>
+Date:   Wed Oct 24 15:49:28 2018 +0800
+
+    sd
+
+[33mcommit 2858df78014357d907783c8a6473cf30ec7d19f5[m
+Author: ruanxinwu <770597562@qq.com>
+Date:   Wed Oct 24 15:47:59 2018 +0800
+
+    好的
+
+[33mcommit 8665d66b03d14ee5dda2e1b2acd372b08e582f26[m
+Author: ruanxinwu <770597562@qq.com>
+Date:   Tue Oct 23 10:59:14 2018 +0800
+
+    添加逻辑层
+
+[33mcommit 00534c80fe555c19ac51036e72d3842da92e0c3c[m[33m ([m[1;32mdev[m[33m)[m
+Author: ruanxinwu <770597562@qq.com>
+Date:   Mon Oct 15 14:45:51 2018 +0800
+
+    提交
+
+[33mcommit 30d6e1341699ee42881b0a6a54bebbb4f851b0ca[m
+Author: ruanxinwu <770597562@qq.com>
+Date:   Sun Sep 30 16:26:36 2018 +0800
+
+    学习role管理
+
+[33mcommit d0f2e22b5278da1bb49c3435a036d195cc8765d4[m
+Author: ruanxinwu <770597562@qq.com>
+Date:   Sun Sep 30 13:21:33 2018 +0800
+
+    d
+
+[33mcommit a2fe986c1481bf36fbfc0371d35a3a0633663d49[m
+Merge: e047e0a a8ebfe2
+Author: ruanxinwu <770597562@qq.com>
+Date:   Sat Sep 29 18:09:17 2018 +0800
+
+    学习role管理
+
+[33mcommit a8ebfe217f5e81aa8a183c97d1634de6e80916e6[m[33m ([m[1;31morigin/dev[m[33m)[m
+Author: ruanxinwu <770597562@qq.com>
+Date:   Sat Sep 29 18:06:39 2018 +0800
+
+    Merge branch 'dev'
+    
+    # Conflicts:
+    #       app/Http/models/Order.php
+
+[33mcommit 71f56ba883328439c5cb311a9e545684e1577382[m
+Author: ruanxinwu <770597562@qq.com>
+Date:   Sat Sep 29 09:28:39 2018 +0800
+
+    s
+
+[33mcommit e047e0ad0e161baeb9f93b6479b99084c339e381[m
+Merge: 8c0f297 57df2bc
+Author: ruanxinwu <770597562@qq.com>
+Date:   Fri Sep 28 15:34:50 2018 +0800
+
+    d
+
+[33mcommit 57df2bc0ff8006c17d6a834a22818bc415bcdeec[m
+Author: ruanxinwu <770597562@qq.com>
+Date:   Fri Sep 28 15:30:16 2018 +0800
+
+    s
+
+[33mcommit 8c0f29714de8d7e017d67d8ace1cdeb3c33707bc[m
+Author: ruanxinwu <770597562@qq.com>
+Date:   Fri Sep 28 15:28:02 2018 +0800
+
+    w
+
+[33mcommit be6c039380b6cfc04dc57ad85f7f472f2e4d0fe6[m
+Author: ruanxinwu <770597562@qq.com>
+Date:   Fri Sep 28 15:11:43 2018 +0800
+
+    new
