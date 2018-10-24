@@ -53,7 +53,7 @@ class LoginController extends Controller
         $input['password'] = bcrypt($input['password']);
 
         // 用户保存数据库
-        $user = User::create($input);
+        $user = User::query()->create($input);
 
         // 修改用户token
         $token = $user->createToken();
@@ -67,7 +67,7 @@ class LoginController extends Controller
      */
     public function loginOut(Request $request)
     {
-        User::updateOrCreate(
+        User::query()->updateOrCreate(
             ['api_token' => $request->get('token')],
             ['api_token' => null]
         );
