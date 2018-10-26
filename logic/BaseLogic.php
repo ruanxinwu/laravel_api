@@ -15,7 +15,7 @@ use OSS\Core\OssException;
 use OSS\OssClient;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 
-class CommonLogic
+class BaseLogic
 {
     /**
      * 发送邮件
@@ -124,7 +124,7 @@ class CommonLogic
      * @throws \PhpOffice\PhpSpreadsheet\Exception
      * @throws \PhpOffice\PhpSpreadsheet\Reader\Exception
      */
-    public function readExcel($file,$fileType = 'xlsx')
+    public function readExcel($file,$fileType = 'Xlsx')
     {
         return IOFactory::createReader($fileType)->load($file)->getActiveSheet()->toArray();
     }

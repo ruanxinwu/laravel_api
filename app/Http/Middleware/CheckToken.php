@@ -4,11 +4,14 @@ namespace App\Http\Middleware;
 
 use App\Exceptions\ApiException;
 use App\Http\Traits\ControllerTraits;
-use App\User;
 use Closure;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
+use Tymon\JWTAuth\Exceptions\JWTException;
+use Tymon\JWTAuth\Exceptions\TokenExpiredException;
+use Tymon\JWTAuth\Http\Middleware\BaseMiddleware;
 
-class CheckToken
+class CheckToken extends BaseMiddleware
 {
     use ControllerTraits;
     /**
@@ -20,25 +23,22 @@ class CheckToken
      */
     public function handle($request, Closure $next)
     {
-        $request->request_at =  date('Y-m-d H:i:s',time());
-
-        // 获取token,优先级 get>post>header
-        $token = $request->get('token');
-        $token = $token?$token:$request->header('token');
-
-        //DB::enableQueryLog();
-        $user = User::query()
-                ->where('api_token' ,'=',$token)
-                ->where('expire_at' ,'>',date('Y-m-d H:i:s',time()))
-                ->first();
-        //pd(DB::getQueryLog());
-        if($user === null) {
-            return response()->json($this->apiResponseError(ApiException::TOKEN_ERROR));
+        // 检测请求是否存在token
+        try{
+            $this->checkForToken($request);
+        }catch(UnauthorizedHttpException $exception){
+            return response()->json($this->apiResponseError(ApiException::ERROR,$exception->getMessage()));
         }
 
-        // 存储用户信息
-        $request->user = $user;
-
-        return $next($request);
+        try{
+            // 校验token
+            if( $user = $this->auth->parseToken()->authenticate()){
+                $request->user = $user;
+                return $next($request);
+            }
+            throw new UnauthorizedHttpException('jwt-auth', '未登录');
+        }catch (TokenExpiredException $exception){
+            return response()->json($this->apiResponseError(ApiException::TOKEN_ERROR,$exception->getMessage()));
+        }
     }
 }

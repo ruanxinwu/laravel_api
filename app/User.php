@@ -7,8 +7,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravel\Passport\HasApiTokens;
 use Ramsey\Uuid\Uuid;
 use Spatie\Permission\Traits\HasRoles;
-
-class User extends Authenticatable //implements JWTAuth
+use Tymon\JWTAuth\Contracts\JWTSubject;
+class User extends Authenticatable implements JWTSubject
 {
     use Notifiable;
     use HasApiTokens;
@@ -56,4 +56,16 @@ class User extends Authenticatable //implements JWTAuth
         );
     }
 
+    /**
+     * @return array
+     */
+    public function getJWTCustomClaims()
+    {
+        return [];
+    }
+
+    public function getJWTIdentifier()
+    {
+        return $this->getKey();
+    }
 }

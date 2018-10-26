@@ -9,25 +9,29 @@ use App\User;
 use function foo\func;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
-use Logic\CommonLogic;
+use Logic\BaseLogic;
 use Logic\OrderLogic;
 use OSS\Core\OssException;
 use OSS\OssClient;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
+use Tymon\JWTAuth\JWTAuth;
 
 class DefaultController extends Controller
 {
     use ControllerTraits;
     public function show(Request $request)
     {
-        $model = new CommonLogic();
-
+        new BaseLogic();
+        $params = $request->only('token','an','sd');
+        $token = 'wewe';
+        pd($request->user->name,$request->user->email,$request->user->id,$request->user);
     }
 
 }

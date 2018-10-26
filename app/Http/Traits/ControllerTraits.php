@@ -20,7 +20,7 @@ trait ControllerTraits
     }
 
     // 返回数据格式
-    public function apiResponse($code,$message,$data = array())
+    private function apiResponse($code,$message,$data = array())
     {
         return array(
             'code' => $code,
