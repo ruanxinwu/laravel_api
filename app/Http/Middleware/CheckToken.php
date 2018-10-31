@@ -37,7 +37,7 @@ class CheckToken extends BaseMiddleware
                 return $next($request);
             }
             throw new UnauthorizedHttpException('jwt-auth', '未登录');
-        }catch (TokenExpiredException $exception){
+        }catch (\Exception $exception){
             return response()->json($this->apiResponseError(ApiException::TOKEN_ERROR,$exception->getMessage()));
         }
     }

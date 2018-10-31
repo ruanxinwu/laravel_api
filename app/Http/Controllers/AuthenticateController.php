@@ -46,6 +46,7 @@ class AuthenticateController extends Controller
     }
 
     /**
+     * 注册新用户
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
@@ -60,7 +61,7 @@ class AuthenticateController extends Controller
             return response()->json($this->apiResponseError(ApiException::REGISTER_ERROR,$validator->errors()->getMessages()), 401);
         }
 
-        //密码加密
+        // 密码加密
         $password = $input['password'];
         $input['password'] = bcrypt($password);
 

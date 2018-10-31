@@ -26,6 +26,10 @@ use Illuminate\Support\Facades\Route;
 Route::group(['middleware' => ['authenticate']],function() {
     Route::post('default/show','Api\DefaultController@show');
 });
-Route::post('authenticate/login', 'AuthenticateController@login');
-Route::post('authenticate/logout', 'AuthenticateController@logout');
+Route::group(['middleware' => ['api.log']],function(){
+    Route::post('authenticate/login', 'AuthenticateController@login');
+    Route::post('authenticate/logout', 'AuthenticateController@logout');
+
+});
+//Route::post('authenticate/logout', 'AuthenticateController@logout');
 Route::post('authenticate/register', 'AuthenticateController@register');

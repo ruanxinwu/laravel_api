@@ -28,10 +28,8 @@ class DefaultController extends Controller
     use ControllerTraits;
     public function show(Request $request)
     {
-        new BaseLogic();
-        $params = $request->only('token','an','sd');
-        $token = 'wewe';
-        pd($request->user->name,$request->user->email,$request->user->id,$request->user);
+        $model = new OrderLogic();
+        pd($model->scope(1));
     }
 
 }
